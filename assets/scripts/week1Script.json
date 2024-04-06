@@ -1,0 +1,203 @@
+[
+  {
+    "description": "Hello everyone! Today, we're diving into the amazing world of microscopes!"
+
+  },
+  {
+    "description": "These incredible tools allow us to see things invisible to the naked eye,"
+
+  },
+  {
+    "description": "acting like our windows into the tiny world. From studying cells to analyzing"
+
+  },
+  {
+    "description": "materials, microscopes are essential scientific instruments."
+
+  },
+  {
+    "description": "Now, are you all ready to explore the fascinating parts that make up a microscope?",
+    "choices": [
+      "Yes"
+    ]
+  },
+  {
+    "description": "Let's start with the foundation the base. Imagine it as the "
+
+  },
+  {
+    "description": "strong legs holding everything up for steady observations. It's usually made of"
+
+  },
+  {
+    "description": "metal or plastic and has rubber feet to prevent slipping. Some "
+
+  },
+  {
+    "description": "even have compartments for storing microscope accessories. "
+
+  },
+  {
+    "description": "Arm: Connecting the base and the head is the arm"
+
+  },
+  {
+    "description": "It's like a bridge that allows us to adjust the microscope's position"
+
+  },
+  {
+    "description": "comfortably. Now, for clear views, we need the focus knob"
+
+  },
+  {
+    "description": "This is usually located on the arm and is easy to reach"
+
+  },
+  {
+    "description": "By turning it, we move the objective lenses up and down, focusing the"
+
+  },
+  {
+    "description": "image sharply. Condenser: Another key player is the condenser, located"
+
+  },
+  {
+    "description": "beneath the stage. This part focuses light onto the specimen, like"
+
+  },
+  {
+    "description": "a spotlight for better visibility. We can adjust it to control"
+
+  },
+  {
+    "description": "the intensity and angle of light, enhancing the contrast and sharpness of the image"
+  },
+  {
+    "description": "Tray: The tray is like the platform where the stars of the show, "
+
+  },
+  {
+    "description": "our specimens on slides, get placed. It holds them steady for examination"
+
+  },
+  {
+    "description": "Slide Holder:  Securing the slides on the stage is the slide holder."
+
+  },
+  {
+    "description": "This ensures they stay stable while we view them. Lamp:"
+
+  },
+  {
+    "description": "Remember the lighting disk we mentioned earlier? ",
+    "choices": ["Yes"]
+  },
+  {
+    "description": "It often has a lamp, which is like a dimmer switch for the light"
+
+  },
+  {
+    "description": "We can adjust it to control the amount of light that passes through the "
+
+  },
+  {
+    "description": "specimen. Now let's talk about the real magnification stars the objective "
+
+  },
+  {
+    "description": "lenses! These lenses come in different powers, like 4x, 8x, 40x, and 100x"
+
+  },
+  {
+    "description": "The higher the magnification, the closer we can zoom in on the tiniest"
+
+  },
+  {
+    "description": "details. Ocular Lens: Finally, we have the ocular lens, located at the"
+
+  },
+  {
+    "description": "top of the microscope closest to your eye. This lens acts like a"
+
+  },
+  {
+    "description": "magnifying glass further enhancing the image produced by the objective"
+
+  },
+  {
+    "description": "lens. By understanding each of these microscope parts and how they work"
+
+  },
+  {
+    "description": "together, we can unlock the mysteries of the microscopic world. So,"
+
+  },
+  {
+    "description": "class, can anyone tell me:"
+
+  },
+  {
+    "description": "What part of the microscope is responsible for illuminating the specimen?",
+    "choices": [
+      "Condenser",
+      "Lamp",
+      "Lighting disk",
+      "Objective lenses",
+      "Ocular lens"
+    ]
+  },
+  {
+    "description": "We talked about the focus knob for adjusting clarity"
+
+  },
+  {
+    "description": "class, can anyone tell me:"
+
+  },
+  {
+    "description": "But what part of the microscope actually concentrates the light onto the specimen?",
+    "choices": [
+      "Condenser",
+      "Lamp",
+      "Lighting disk"
+    ]
+  },
+  {
+    "description": "The stage holds the slide"
+
+  },
+  {
+    "description": "but how does the microscope adjust the focus up and down to bring the specimen into view?",
+    "choices": [
+      "Focus knob",
+      "Tray",
+      "Objective lenses"
+    ]
+  },
+  {
+    "description": "We learned about different objective lenses for magnification"
+
+  },
+  {
+    "description": "But what part of the microscope further enhances the magnified image for our eyes?",
+    "choices": [
+      "Ocular lens",
+      "Objective lenses",
+      "Condenser"
+    ]
+  },
+  {
+    "description": "Imagine you want to see a very tiny structure on your slide"
+
+  },
+  {
+    "description": "What two microscope parts would you work together to achieve this: high magnification and clear illumination?",
+    "choices": [
+      "Objective lenses and lamp",
+      "Condenser and lighting disk",
+      "Ocular lens and focus knob"
+    ]
+  }
+]
+
+

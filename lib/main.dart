@@ -70,22 +70,22 @@ class _ObjectsOnPlanesWidgetState extends State<ObjectsOnPlanesWidget> {
             planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
           ),
           Align(
-            alignment: FractionalOffset.bottomCenter,
-            child: Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.5), // Gray background with reduced opacity
+              alignment: FractionalOffset.bottomCenter,
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.5), // Gray background with reduced opacity
                 ),
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text: descriptionBoard,
-                  style: const TextStyle(
-                    fontSize: 18.0, // Adjust font size as needed
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: descriptionBoard,
+                    style: const TextStyle(
+                      fontSize: 18.0, // Adjust font size as needed
+                    ),
                   ),
                 ),
-              ),
-            )
+              )
 
           )
         ]));
@@ -130,13 +130,13 @@ class _ObjectsOnPlanesWidgetState extends State<ObjectsOnPlanesWidget> {
 
   Future<void> onPlaneOrPointTapped(
       List<ARHitTestResult> hitTestResults) async {
-      var singleHitTestResult = hitTestResults.firstWhere(
-              (hitTestResult) => hitTestResult.type == ARHitTestResultType.plane);
-      if(singleHit == null) {
-        singleHit = singleHitTestResult;
-        _startTimer();
-      }
+    var singleHitTestResult = hitTestResults.firstWhere(
+            (hitTestResult) => hitTestResult.type == ARHitTestResultType.plane);
+    if(singleHit == null) {
+      singleHit = singleHitTestResult;
+      _startTimer();
     }
+  }
 
   void _startTimer() {
     // Timer logic
@@ -172,12 +172,12 @@ class _ObjectsOnPlanesWidgetState extends State<ObjectsOnPlanesWidget> {
           subtitleDuration: [3, 3, 7, 8, 6]),
       SceneNode(modelPath: "assets/arm/arm.gltf", position: vector.Vector3(0, 0, 0), scale: vector.Vector3(1, 1, 1),
           subtitle:[
-          "The arm connects the base to the head, facilitating adjustments.",
-          "Usually made of metal, it provides structural support to the microscope.",
-          "Its ergonomic design allows for comfortable handling during use.",
-          "Some arms feature built-in focusing mechanisms for enhanced precision.",
-          "Overall, the arm plays a crucial role in maneuverability and stability."
-        ],
+            "The arm connects the base to the head, facilitating adjustments.",
+            "Usually made of metal, it provides structural support to the microscope.",
+            "Its ergonomic design allows for comfortable handling during use.",
+            "Some arms feature built-in focusing mechanisms for enhanced precision.",
+            "Overall, the arm plays a crucial role in maneuverability and stability."
+          ],
           subtitleDuration: [3, 3, 7, 8, 6]),
       SceneNode(modelPath: "assets/focusknob/focusknob.gltf", position: vector.Vector3(-0.034, 0.03, -0.02), scale: vector.Vector3(.8, .8, .8),
           subtitle: [

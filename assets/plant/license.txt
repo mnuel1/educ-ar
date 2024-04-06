@@ -1,0 +1,11 @@
+Model Information:
+* title:	Plant Cell
+* source:	https://sketchfab.com/3d-models/plant-cell-caa4a71203254d979bb8f200a8f96eab
+* author:	brianj.seely (https://sketchfab.com/brianj.seely)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Plant Cell" (https://sketchfab.com/3d-models/plant-cell-caa4a71203254d979bb8f200a8f96eab) by brianj.seely (https://sketchfab.com/brianj.seely) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
