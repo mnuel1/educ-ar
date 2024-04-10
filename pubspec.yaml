@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   ar_flutter_plugin: ^0.7.3
-  audioplayers: ^6.0.0
+  audioplayers: 6.0.0
 #  arcore_flutter_plugin: ^0.1.0
 #  vector_math: ^2.1.4
 
@@ -68,6 +68,10 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/microscpe/
+    - assets/sim4x/
+    - assets/sim8x/
+    - assets/sim40x/
+    - assets/sim100x/
     - assets/arm/
     - assets/base/
     - assets/4x/
@@ -86,6 +90,7 @@ flutter:
     - assets/audio/
     - assets/org/
     - assets/plant/
+    - assets/animal/
     - assets/scripts/
 
 
