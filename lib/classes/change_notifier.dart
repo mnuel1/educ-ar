@@ -1,0 +1,77 @@
+import 'dart:async';
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+
+class UpdateNotify extends ChangeNotifier {
+  List<List<dynamic>> _descriptions = []; // Modified to allow changes
+  int _currentDescriptionIndex = 0;
+  List<dynamic> get currentDescription => _descriptions[_currentDescriptionIndex];
+  bool _answerChosen = false;
+  bool isPlayed = false;
+  Timer? _timer;
+
+  Function? onDescriptionChange;
+
+  UpdateNotify(String scriptPath) {
+    _loadDescriptions(scriptPath); // Load descriptions from JSON file
+    // _startTimer();
+  }
+
+
+  void startTimer() {
+
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_currentDescriptionIndex < _descriptions.length - 1) {
+        if ([5, 23, 35, 38, 40, 42, 44].contains(_currentDescriptionIndex) && _answerChosen ||
+            ![5, 23, 35, 38, 40, 42, 44].contains(_currentDescriptionIndex) && !_answerChosen) {
+          nextDescription();
+        }
+      } else {
+        _timer?.cancel();
+        // Quiz completed, perform actions accordingly
+        print('Quiz completed!');
+      }
+    });
+  }
+  void chooseAnswer(String answer) {
+    if (!_answerChosen) {
+      if (answer == currentDescription[2]) {
+        _answerChosen = true;
+      }
+    }
+  }
+
+  void nextDescription() {
+    if (_currentDescriptionIndex < _descriptions.length - 1) {
+      _currentDescriptionIndex++;
+      _answerChosen = false; // Reset answer chosen flag
+      notifyListeners();
+      if (onDescriptionChange != null) {
+        onDescriptionChange!();
+      }
+    } else {
+      _timer?.cancel();
+    }
+  }
+
+  void _loadDescriptions(String path) async {
+    print(path);
+    try {
+      String data = await rootBundle.loadString(path);
+      List<dynamic> jsonList = json.decode(data);
+      _descriptions = jsonList.map((jsonItem) {
+        return [
+          jsonItem['description'] as String,
+          (jsonItem['choices'] as List),
+          jsonItem['answer'], // Keep it dynamic since the type may vary
+        ];
+      }).toList();
+      notifyListeners(); // Notify listeners after descriptions are loaded
+    } catch (e) {
+      print('Error loading descriptions: $e');
+    }
+  }
+}
+

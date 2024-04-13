@@ -67,31 +67,22 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/microscpe/
-    - assets/sim4x/
-    - assets/sim8x/
-    - assets/sim40x/
-    - assets/sim100x/
-    - assets/arm/
-    - assets/base/
-    - assets/4x/
-    - assets/8x/
-    - assets/40x/
-    - assets/100x/
-    - assets/condenser/
-    - assets/disk/
-    - assets/focusknob/
-    - assets/knob/
-    - assets/lens/
-    - assets/lamp/
-    - assets/tray/
-    - assets/slideholder/
     - assets/bot/
-    - assets/audio/
-    - assets/org/
-    - assets/plant/
-    - assets/animal/
-    - assets/scripts/
+    - assets/lesson1&2/
+    - assets/lesson1&2/assets/base/
+    - assets/lesson1&2/assets/arm/
+    - assets/lesson1&2/assets/condenser/
+    - assets/lesson1&2/assets/disk/
+    - assets/lesson1&2/assets/focusknob/
+    - assets/lesson1&2/assets/knob/
+    - assets/lesson1&2/assets/lamp/
+    - assets/lesson1&2/assets/lens/
+    - assets/lesson1&2/assets/lenses/
+    - assets/lesson1&2/assets/tray/
+    - assets/lesson1&2/assets/slideholder/
+    - assets/lesson1&2/lesson1Subtitles/AT/
+    - assets/lesson1&2/lesson1Subtitles/TLA/
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
