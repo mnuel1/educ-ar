@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ import 'package:microscope_ar/classes/change_notifier.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => UpdateNotify("assets/lesson1&2/lesson1Subtitles/AT/subtitle.json"),
+      create: (context) => UpdateNotify("assets/lesson1&2/lesson2Subtitles/TLA/subtitle.json"),
       child: const MicroscopeModuleScreen(),
     ),
   );
@@ -46,18 +47,19 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
 
   var singleHit = null;
   int objectBoardIndex = 1;
-    List<SceneNode> sceneNodes = [
-      SceneNode(name: "Bot", modelPath: "assets/lesson1&2/assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.2, 0.030), scale: vector.Vector3(0.3, 0.3, 0.3)),
-      SceneNode(name: "Focus Knob", modelPath: "assets/lesson1&2/assets/focusknob/focusknob.gltf", position: vector.Vector3(-0.034, 0.03, -0.02), scale: vector.Vector3(.8, .8, .8)),
-      SceneNode(name: "Condenser", modelPath: "assets/lesson1&2/assets/condenser/condenser.gltf", position: vector.Vector3(0.0, 0.09, 0.03), scale: vector.Vector3(1, 1, 1)),
-      SceneNode(name: "Disk", modelPath: "assets/lesson1&2/assets/disk/disk.gltf", position: vector.Vector3(0.0, 0.175, 0.034), scale: vector.Vector3(1, 1, 1)),
-      SceneNode(name: "Objective Lens 4x", modelPath: "assets/lesson1&2/assets/lenses/4x/4x.gltf", position: vector.Vector3(0.0001, 0.145, 0.022), scale: vector.Vector3(0.45, 0.6, 0.6)),
-      SceneNode(name: "Objective Lens 10x", modelPath: "assets/lesson1&2/assets/lenses/8x/8x.gltf", position: vector.Vector3(-0.01, 0.146, 0.038), scale: vector.Vector3(0.62, 0.7, 0.6)),
-      SceneNode(name: "Objective Lens 40x", modelPath: "assets/lesson1&2/assets/lenses/40x/40x.gltf", position: vector.Vector3(0.0, 0.14, 0.045), scale: vector.Vector3(0.7, 0.9, 0.6)),
-      SceneNode(name: "Objective Lens 100x", modelPath: "assets/lesson1&2/assets/lenses/100x/100x.gltf", position: vector.Vector3(0.015, 0.15, 0.038), scale: vector.Vector3(0.7, 0.7, 0.6)),
-      SceneNode(name: "Ocular Lens", modelPath: "assets/lesson1&2/assets/lens/lens.gltf", position: vector.Vector3(0.0, 0.02, 0.07), scale: vector.Vector3(0.8, 0.8, 0.8)),
-      // SceneNode(modelPath:"assets/microscpe/microscope.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    ];
+  List<SceneNode> sceneNodes = [
+    SceneNode(name:"bot", modelPath: "assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.4, 0.030), scale: vector.Vector3(0.3, 0.3, 0.3)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/specimen/specimen.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name: "Disk", modelPath: "assets/lesson1&2/assets/disk/disk.gltf", position: vector.Vector3(0.0, 0.175, 0.034), scale: vector.Vector3(1, 1, 1)),
+    SceneNode(name: "Objective Lens 4x", modelPath: "assets/lesson1&2/assets/lenses/4x/4x.gltf", position: vector.Vector3(0.0001, 0.145, 0.022), scale: vector.Vector3(0.45, 0.6, 0.6)),
+    SceneNode(name: "Objective Lens 10x", modelPath: "assets/lesson1&2/assets/lenses/8x/8x.gltf", position: vector.Vector3(-0.01, 0.146, 0.038), scale: vector.Vector3(0.62, 0.7, 0.6)),
+    SceneNode(name: "Objective Lens 40x", modelPath: "assets/lesson1&2/assets/lenses/40x/40x.gltf", position: vector.Vector3(0.0, 0.14, 0.045), scale: vector.Vector3(0.7, 0.9, 0.6)),
+    SceneNode(name: "Objective Lens 100x", modelPath: "assets/lesson1&2/assets/lenses/100x/100x.gltf", position: vector.Vector3(0.015, 0.15, 0.038), scale: vector.Vector3(0.7, 0.7, 0.6)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim4x/microscope_x4.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim8x/sim8x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim40x/sim40x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim100x/sim100x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+  ];
 
   late UpdateNotify updateNotify;
   @override
@@ -73,100 +75,122 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
       if (objectBoardIndex == 1) {
         addNodeToAnchor(sceneNodes[0]);
       }
-      if (objectBoardIndex == 8) {
+      if (objectBoardIndex == 5) {
         addNodeToAnchor(sceneNodes[1]);
+      }
+      if (objectBoardIndex == 7) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
         anchors = [];
-      }
-
-      if (objectBoardIndex == 9) {
         addNodeToAnchor(sceneNodes[0]);
         addNodeToAnchor(sceneNodes[2]);
-        for (var anchor in anchors) {
-          arAnchorManager!.removeAnchor(anchor);
-        }
-        anchors = [];
-      }
-
-      if (objectBoardIndex == 10) {
-        addNodeToAnchor(sceneNodes[0]);
         addNodeToAnchor(sceneNodes[3]);
         addNodeToAnchor(sceneNodes[4]);
         addNodeToAnchor(sceneNodes[5]);
         addNodeToAnchor(sceneNodes[6]);
-        addNodeToAnchor(sceneNodes[7]);
-
+      }
+      if (objectBoardIndex == 10) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
         anchors = [];
+        addNodeToAnchor(sceneNodes[0]);
+        addNodeToAnchor(sceneNodes[3]);
+        addNodeToAnchor(sceneNodes[4]);
       }
-      if (objectBoardIndex == 11) {
+      if (objectBoardIndex == 13) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[0]);
+        addNodeToAnchor(sceneNodes[7]);
+      }
+      if (objectBoardIndex == 15) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
         addNodeToAnchor(sceneNodes[0]);
         addNodeToAnchor(sceneNodes[8]);
+      }
+      if (objectBoardIndex == 17) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
         anchors = [];
+        addNodeToAnchor(sceneNodes[0]);
+        addNodeToAnchor(sceneNodes[5]);
+        addNodeToAnchor(sceneNodes[6]);
+      }
+      if (objectBoardIndex == 20) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[0]);
+        addNodeToAnchor(sceneNodes[9]);
       }
 
+      if (objectBoardIndex == 22) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[0]);
+        addNodeToAnchor(sceneNodes[10]);
+      }
       objectBoardIndex++;
 
-      //  // Call addNodeToAnchor method whenever nextDescription is called
-      //       if (objectBoardIndex == 0 || objectBoardIndex == 1 || objectBoardIndex == 14) {
-      //         for (var anchor in anchors) {
-      //           arAnchorManager!.removeAnchor(anchor);
-      //         }
-      //         anchors = [];
+
     };
 
     return MaterialApp(
-        home: Scaffold(
-          body: Stack(
-            children: [
-              ARView(
-                onARViewCreated: onARViewCreated,
-                planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
-              ),
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    if (updateNotify.currentDescription[1].length != 0)
-                      Column(
-                        children: List.generate(
-                          updateNotify.currentDescription[1].length,
-                              (index) => ChoiceButton(
-                            choice: updateNotify.currentDescription[1][index],
-                            onPressed: () {
-                              updateNotify.chooseAnswer(updateNotify.currentDescription[1][index]);
-                            },
-                          ),
+      home: Scaffold(
+        body: Stack(
+          children: [
+            ARView(
+              onARViewCreated: onARViewCreated,
+              planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  if (updateNotify.currentDescription[1].length != 0)
+                    Column(
+                      children: List.generate(
+                        updateNotify.currentDescription[1].length,
+                            (index) => ChoiceButton(
+                          choice: updateNotify.currentDescription[1][index],
+                          onPressed: () {
+                            updateNotify.chooseAnswer(updateNotify.currentDescription[1][index]);
+                          },
                         ),
                       ),
-                  ],
+                    ),
+                ],
+              ),
+            ),
+            Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.5),
+                ),
+                child: Text(
+                  updateNotify.currentDescription[0] ?? '',
+                  style: const TextStyle(fontSize: 20.0),
+                  textAlign: TextAlign.center,
                 ),
               ),
-              Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Container(
-                  padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
-                  child: Text(
-                    updateNotify.currentDescription[0] ?? '',
-                    style: const TextStyle(fontSize: 20.0),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
-      );
+      ),
+    );
 
   }
 

@@ -78,10 +78,21 @@ flutter:
     - assets/lesson1&2/assets/lamp/
     - assets/lesson1&2/assets/lens/
     - assets/lesson1&2/assets/lenses/
+    - assets/lesson1&2/assets/lenses/4x/
+    - assets/lesson1&2/assets/lenses/8x/
+    - assets/lesson1&2/assets/lenses/40x/
+    - assets/lesson1&2/assets/lenses/100x/
     - assets/lesson1&2/assets/tray/
     - assets/lesson1&2/assets/slideholder/
+    - assets/lesson1&2/assets/specimen/
+    - assets/lesson1&2/assets/sim4x/
+    - assets/lesson1&2/assets/sim8x/
+    - assets/lesson1&2/assets/sim40x/
+    - assets/lesson1&2/assets/sim100x/
     - assets/lesson1&2/lesson1Subtitles/AT/
     - assets/lesson1&2/lesson1Subtitles/TLA/
+    - assets/lesson1&2/lesson2Subtitles/AT/
+    - assets/lesson1&2/lesson2Subtitles/TLA/
 
 
 

@@ -22,10 +22,14 @@ class UpdateNotify extends ChangeNotifier {
 
   void startTimer() {
 
-    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (_currentDescriptionIndex < _descriptions.length - 1) {
-        if ([5, 23, 35, 38, 40, 42, 44].contains(_currentDescriptionIndex) && _answerChosen ||
-            ![5, 23, 35, 38, 40, 42, 44].contains(_currentDescriptionIndex) && !_answerChosen) {
+
+        // Check if the ending character is a question mark
+        bool endsWithQuestionMark = currentDescription[0].endsWith('?');
+
+        if (endsWithQuestionMark && _answerChosen ||
+            !endsWithQuestionMark && !_answerChosen) {
           nextDescription();
         }
       } else {
@@ -57,7 +61,7 @@ class UpdateNotify extends ChangeNotifier {
   }
 
   void _loadDescriptions(String path) async {
-    print(path);
+    // print(path);
     try {
       String data = await rootBundle.loadString(path);
       List<dynamic> jsonList = json.decode(data);
