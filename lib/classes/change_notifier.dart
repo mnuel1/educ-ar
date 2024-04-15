@@ -16,7 +16,7 @@ class UpdateNotify extends ChangeNotifier {
 
   UpdateNotify(String scriptPath) {
     _loadDescriptions(scriptPath); // Load descriptions from JSON file
-    startTimer();
+    // startTimer();
   }
 
 

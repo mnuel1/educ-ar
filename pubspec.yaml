@@ -93,6 +93,11 @@ flutter:
     - assets/lesson1&2/lesson1Subtitles/TLA/
     - assets/lesson1&2/lesson2Subtitles/AT/
     - assets/lesson1&2/lesson2Subtitles/TLA/
+    - assets/lesson3/assets/org/
+    - assets/lesson3/assets/blocks/
+    - assets/lesson3/lesson3Subtitles/AT/
+    - assets/lesson3/lesson3Subtitles/TLA/
+
 
 
 
