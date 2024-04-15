@@ -16,7 +16,7 @@ class UpdateNotify extends ChangeNotifier {
 
   UpdateNotify(String scriptPath) {
     _loadDescriptions(scriptPath); // Load descriptions from JSON file
-    // _startTimer();
+    startTimer();
   }
 
 
@@ -31,6 +31,7 @@ class UpdateNotify extends ChangeNotifier {
         if (endsWithQuestionMark && _answerChosen ||
             !endsWithQuestionMark && !_answerChosen) {
           nextDescription();
+          print(endsWithQuestionMark);
         }
       } else {
         _timer?.cancel();
@@ -41,7 +42,9 @@ class UpdateNotify extends ChangeNotifier {
   }
   void chooseAnswer(String answer) {
     if (!_answerChosen) {
-      if (answer == currentDescription[2]) {
+      if (currentDescription[2] == "") {
+        _answerChosen = true;
+      } else if (answer == currentDescription[2]) {
         _answerChosen = true;
       }
     }

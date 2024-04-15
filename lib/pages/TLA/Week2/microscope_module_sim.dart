@@ -49,16 +49,16 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"bot", modelPath: "assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.4, 0.030), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/specimen/specimen.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(name: "Disk", modelPath: "assets/lesson1&2/assets/disk/disk.gltf", position: vector.Vector3(0.0, 0.175, 0.034), scale: vector.Vector3(1, 1, 1)),
-    SceneNode(name: "Objective Lens 4x", modelPath: "assets/lesson1&2/assets/lenses/4x/4x.gltf", position: vector.Vector3(0.0001, 0.145, 0.022), scale: vector.Vector3(0.45, 0.6, 0.6)),
-    SceneNode(name: "Objective Lens 10x", modelPath: "assets/lesson1&2/assets/lenses/8x/8x.gltf", position: vector.Vector3(-0.01, 0.146, 0.038), scale: vector.Vector3(0.62, 0.7, 0.6)),
-    SceneNode(name: "Objective Lens 40x", modelPath: "assets/lesson1&2/assets/lenses/40x/40x.gltf", position: vector.Vector3(0.0, 0.14, 0.045), scale: vector.Vector3(0.7, 0.9, 0.6)),
-    SceneNode(name: "Objective Lens 100x", modelPath: "assets/lesson1&2/assets/lenses/100x/100x.gltf", position: vector.Vector3(0.015, 0.15, 0.038), scale: vector.Vector3(0.7, 0.7, 0.6)),
+    SceneNode(name:"Red Blood Cell", modelPath:"assets/lesson1&2/assets/specimen/specimen.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"Disk", modelPath: "assets/lesson1&2/assets/disk/disk.gltf", position: vector.Vector3(0.0, 0.175, 0.034), scale: vector.Vector3(1, 1, 1)),
+    SceneNode(name:"Objective Lens 4x", modelPath: "assets/lesson1&2/assets/lenses/4x/4x.gltf", position: vector.Vector3(0.0001, 0.145, 0.022), scale: vector.Vector3(0.45, 0.6, 0.6)),
+    SceneNode(name:"Objective Lens 10x", modelPath: "assets/lesson1&2/assets/lenses/8x/8x.gltf", position: vector.Vector3(-0.01, 0.146, 0.038), scale: vector.Vector3(0.62, 0.7, 0.6)),
+    SceneNode(name:"Objective Lens 40x", modelPath: "assets/lesson1&2/assets/lenses/40x/40x.gltf", position: vector.Vector3(0.0, 0.14, 0.045), scale: vector.Vector3(0.7, 0.9, 0.6)),
+    SceneNode(name:"Objective Lens 100x", modelPath: "assets/lesson1&2/assets/lenses/100x/100x.gltf", position: vector.Vector3(0.015, 0.15, 0.038), scale: vector.Vector3(0.7, 0.7, 0.6)),
     SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim4x/microscope_x4.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim8x/sim8x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim40x/sim40x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim100x/sim100x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim8x/microscope_x10.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim40x/microscope_x40.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"", modelPath:"assets/lesson1&2/assets/sim100x/microscope_x100.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
   ];
 
   late UpdateNotify updateNotify;
@@ -150,10 +150,10 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
       home: Scaffold(
         body: Stack(
           children: [
-            ARView(
-              onARViewCreated: onARViewCreated,
-              planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
-            ),
+            // ARView(
+            //   onARViewCreated: onARViewCreated,
+            //   planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
+            // ),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
