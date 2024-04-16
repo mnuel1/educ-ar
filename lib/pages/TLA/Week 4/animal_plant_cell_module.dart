@@ -21,12 +21,12 @@ import 'package:vector_math/vector_math_64.dart' as vector;
 
 import 'package:microscope_ar/components/choice_button.dart';
 import 'package:microscope_ar/classes/scenenode.dart';
-import 'package:microscope_ar/classes/audio_player.dart';
+import 'package:microscope_ar/classes/change_notifier.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => MicroscopeModel(),
+      create: (context) => UpdateNotify("assets/lesson4/lesson4Subtitles/TLA/subtitle.json"),
       child: const MicroscopeModuleScreen(),
     ),
   );
@@ -36,77 +36,6 @@ class MicroscopeModuleScreen extends StatefulWidget  {
   const MicroscopeModuleScreen({super.key});
 
   _MicroscopeModulePage createState() => _MicroscopeModulePage();
-}
-
-class MicroscopeModel extends ChangeNotifier {
-  List<List<dynamic>> _descriptions = []; // Modified to allow changes
-  int _currentDescriptionIndex = 0;
-  List<dynamic> get currentDescription => _descriptions[_currentDescriptionIndex];
-  bool _answerChosen = false;
-  bool isPlayed = false;
-  Timer? _timer;
-
-
-  Function? onDescriptionChange;
-
-  MicroscopeModel() {
-    _loadDescriptions(); // Load descriptions from JSON file
-    // _startTimer();
-  }
-
-
-  void _startTimer() {
-
-    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
-      if (_currentDescriptionIndex < _descriptions.length - 1) {
-        if ([4, 9, 12, 16, 17, 18, 22, 23, 24].contains(_currentDescriptionIndex) && _answerChosen ||
-            ![4, 9, 12, 16, 17, 18, 22, 23, 24].contains(_currentDescriptionIndex) && !_answerChosen) {
-          nextDescription();
-        }
-      } else {
-        _timer?.cancel();
-        // Quiz completed, perform actions accordingly
-        print('Quiz completed!');
-      }
-    });
-  }
-  void chooseAnswer(String answer) {
-    if (!_answerChosen) {
-      if (answer == currentDescription[2]) {
-        _answerChosen = true;
-      }
-    }
-  }
-
-  void nextDescription() {
-    if (_currentDescriptionIndex < _descriptions.length - 1) {
-      _currentDescriptionIndex++;
-      _answerChosen = false; // Reset answer chosen flag
-      notifyListeners();
-      if (onDescriptionChange != null) {
-        onDescriptionChange!();
-      }
-    } else {
-      _timer?.cancel();
-    }
-  }
-
-  void _loadDescriptions() async {
-    try {
-      String data = await rootBundle.loadString('assets/scripts/week4Script.json');
-      List<dynamic> jsonList = json.decode(data);
-      _descriptions = jsonList.map((jsonItem) {
-        return [
-          jsonItem['description'] as String,
-          (jsonItem['choices'] as List),
-          jsonItem['answer'], // Keep it dynamic since the type may vary
-        ];
-      }).toList();
-      notifyListeners(); // Notify listeners after descriptions are loaded
-    } catch (e) {
-      print('Error loading descriptions: $e');
-    }
-  }
 }
 
 class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
@@ -121,12 +50,20 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
   var singleHit = null;
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
-    SceneNode(modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.4, 0.030), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(modelPath:"assets/plant/scene.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(modelPath:"assets/animal/animal.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(0.2, 0.2, 0.2)),
+    SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
+    SceneNode(name:"nucleus", modelPath:"assets/lesson4/assets/nucleus.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.5, .5, .5)),
+    SceneNode(name:"walls", modelPath:"assets/lesson4/assets/walls.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"Endoplasmic Reticulum", modelPath:"assets/lesson4/assets/intestine.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"Ribosomes", modelPath:"assets/lesson4/assets/ribosomes.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"Golgi Apparatus", modelPath:"assets/lesson4/assets/golgi.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"Mitochondria", modelPath:"assets/lesson4/assets/power.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"Lysosomes", modelPath:"assets/lesson4/assets/lysosomes.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"Chloroplast", modelPath:"assets/lesson4/assets/chloroplast.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"Central Vacuole", modelPath:"assets/lesson4/assets/vacoule.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson4/assets/cells.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.5, .5, .5)),
   ];
 
-  late MicroscopeModel microscopeModel;
+  late UpdateNotify updateNotify;
   @override
   void dispose() {
     super.dispose();
@@ -134,16 +71,84 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    microscopeModel = Provider.of<MicroscopeModel>(context);
-    microscopeModel.onDescriptionChange = () {
+    updateNotify = Provider.of<UpdateNotify>(context);
+    updateNotify.onDescriptionChange = () {
       // print(objectBoardIndex);
       if (objectBoardIndex == 1) {
         addNodeToAnchor(sceneNodes[0]);
+      }
+      if (objectBoardIndex == 6) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[1]);
+
+      }
+      if (objectBoardIndex == 7) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
         addNodeToAnchor(sceneNodes[2]);
       }
-      if (objectBoardIndex == 39) {
-        addNodeToAnchor(sceneNodes[1]);
+      if (objectBoardIndex == 12) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[3]);
       }
+      if (objectBoardIndex == 13) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[4]);
+      }
+      if (objectBoardIndex == 14) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[5]);
+      }
+      if (objectBoardIndex == 15) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[6]);
+      }
+      if (objectBoardIndex == 16) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[7]);
+      }
+      if (objectBoardIndex == 19) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[8]);
+      }
+      if (objectBoardIndex == 21) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[9]);
+      }
+      if (objectBoardIndex == 24) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+        addNodeToAnchor(sceneNodes[10]);
+      }
+
       objectBoardIndex++;
 
       //  // Call addNodeToAnchor method whenever nextDescription is called
@@ -166,14 +171,14 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  if (microscopeModel.currentDescription[1].length != 0)
+                  if (updateNotify.currentDescription[1].length != 0)
                     Column(
                       children: List.generate(
-                        microscopeModel.currentDescription[1].length,
+                        updateNotify.currentDescription[1].length,
                             (index) => ChoiceButton(
-                          choice: microscopeModel.currentDescription[1][index],
+                          choice: updateNotify.currentDescription[1][index],
                           onPressed: () {
-                            microscopeModel.chooseAnswer(microscopeModel.currentDescription[1][index]);
+                            updateNotify.chooseAnswer(updateNotify.currentDescription[1][index]);
                           },
                         ),
                       ),
@@ -189,7 +194,7 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
                   color: Colors.grey.withOpacity(0.5),
                 ),
                 child: Text(
-                  microscopeModel.currentDescription[0] ?? '',
+                  updateNotify.currentDescription[0] ?? '',
                   style: const TextStyle(fontSize: 20.0),
                   textAlign: TextAlign.center,
                 ),
@@ -234,7 +239,7 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
             (hitTestResult) => hitTestResult.type == ARHitTestResultType.plane);
     if (singleHit == null) {
       singleHit = singleHitTestResult;
-      microscopeModel._startTimer();
+      updateNotify.startTimer();
     }
   }
 
@@ -251,7 +256,7 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
           uri: sceneNode.modelPath,
           scale: sceneNode.scale,
           position: sceneNode.position,
-          rotation: vector.Vector4(1.0, 1.0, 1.0, 0.0));
+          rotation: vector.Vector4(1, 0, 0, 0.0));
       bool? didAddNodeToAnchor =
       await arObjectManager!.addNode(newNode, planeAnchor: newAnchor);
       if (didAddNodeToAnchor!) {

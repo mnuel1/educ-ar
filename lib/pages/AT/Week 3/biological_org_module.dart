@@ -54,13 +54,13 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
     SceneNode(name:"1", modelPath:"assets/lesson3/assets/blocks/cells.gltf", position:vector.Vector3(0.0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
     SceneNode(name:"2", modelPath:"assets/lesson3/assets/blocks/tissues.gltf", position:vector.Vector3(0.0, 0.1, 0), scale:vector.Vector3(.15, .15, .15)),
     SceneNode(name:"3", modelPath:"assets/lesson3/assets/blocks/organs.gltf", position:vector.Vector3(0.0, 0.2, 0.0), scale:vector.Vector3(.15, .15, .15)),
-    // SceneNode(name:"4", modelPath:"assets/lesson3/assets/blocks/organsystem.gltf", position:vector.Vector3(0.0, 0.3, 0.0), scale:vector.Vector3(.15, .15, .15)),
-    // SceneNode(name:"5", modelPath:"assets/lesson3/assets/blocks/organism.gltf", position:vector.Vector3(0.0, 0.4, 0.0), scale:vector.Vector3(.15, .15, .15)),
-    // SceneNode(name:"6", modelPath:"assets/lesson3/assets/blocks/population.gltf", position:vector.Vector3(0.0, 0.5, 0.0), scale:vector.Vector3(.15, .15, .15)),
-    // SceneNode(name:"7", modelPath:"assets/lesson3/assets/blocks/comm.gltf", position:vector.Vector3(0.0, 0.6, 0.0), scale:vector.Vector3(.15, .15, .15)),
-    // SceneNode(name:"8", modelPath:"assets/lesson3/assets/blocks/ecosystem.gltf", position:vector.Vector3(0.0, 0.7, 0.0), scale:vector.Vector3(.15, .15, .15)),
-    // SceneNode(name:"9", modelPath:"assets/lesson3/assets/blocks/biomes.gltf", position:vector.Vector3(0.0, 0.8, 0.0), scale:vector.Vector3(.15, .15, .15)),
-    // SceneNode(name:"10", modelPath:"assets/lesson3/assets/blocks/biosphere.gltf", position:vector.Vector3(0.0, 0.9, 0.0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"4", modelPath:"assets/lesson3/assets/blocks/organsystem.gltf", position:vector.Vector3(0.0, 0.3, 0.0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"5", modelPath:"assets/lesson3/assets/blocks/organism.gltf", position:vector.Vector3(0.0, 0.4, 0.0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"6", modelPath:"assets/lesson3/assets/blocks/population.gltf", position:vector.Vector3(0.0, 0.5, 0.0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"7", modelPath:"assets/lesson3/assets/blocks/comm.gltf", position:vector.Vector3(0.0, 0.6, 0.0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"8", modelPath:"assets/lesson3/assets/blocks/ecosystem.gltf", position:vector.Vector3(0.0, 0.7, 0.0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"9", modelPath:"assets/lesson3/assets/blocks/biomes.gltf", position:vector.Vector3(0.0, 0.8, 0.0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"10", modelPath:"assets/lesson3/assets/blocks/biosphere.gltf", position:vector.Vector3(0.0, 0.9, 0.0), scale:vector.Vector3(.15, .15, .15)),
 
 
   ];
