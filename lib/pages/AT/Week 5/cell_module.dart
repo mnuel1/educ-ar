@@ -75,43 +75,19 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
       // print(objectBoardIndex);
       if (objectBoardIndex == 1) {
         addNodeToAnchor(sceneNodes[0]);
-      }
-      if (objectBoardIndex == 5) {
         addNodeToAnchor(sceneNodes[1]);
-
       }
-      if (objectBoardIndex == 28) {
-        for (var anchor in anchors) {
-          arAnchorManager!.removeAnchor(anchor);
-        }
-        anchors = [];
+      if (objectBoardIndex == 2) {
         addNodeToAnchor(sceneNodes[2]);
-      }
-      if (objectBoardIndex == 31) {
-        for (var anchor in anchors) {
-          arAnchorManager!.removeAnchor(anchor);
-        }
-
-        anchors = [];
         addNodeToAnchor(sceneNodes[3]);
       }
-      if (objectBoardIndex == 33) {
-        for (var anchor in anchors) {
-          arAnchorManager!.removeAnchor(anchor);
-        }
-        anchors = [];
-
+      if (objectBoardIndex == 3) {
         addNodeToAnchor(sceneNodes[4]);
-      }
-      if (objectBoardIndex == 36) {
-        for (var anchor in anchors) {
-          arAnchorManager!.removeAnchor(anchor);
-        }
-        anchors = [];
-
         addNodeToAnchor(sceneNodes[5]);
       }
-
+      if (objectBoardIndex == 4) {
+        addNodeToAnchor(sceneNodes[6]);
+      }
       objectBoardIndex++;
 
       //  // Call addNodeToAnchor method whenever nextDescription is called
@@ -196,38 +172,42 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
 
     var sceneNodeName = foregroundNode.data!["name"];
 
-    // Check if the block exists with the given name
-    var existingBlockIndex = blocks.indexWhere((block) => block["name"] == sceneNodeName);
+    if(anchors.isEmpty) {
+      // Check if the block exists with the given name
+      var existingBlockIndex = blocks.indexWhere((block) => block["name"] == sceneNodeName);
 
-    if (existingBlockIndex != -1) {
-      var block = blocks[existingBlockIndex];
+      if (existingBlockIndex != -1) {
+        var block = blocks[existingBlockIndex];
 
-      // Check if leftBlock is empty
-      if (leftBlock.isEmpty) {
-        leftBlock = block;
-        blocks.removeAt(existingBlockIndex);
-      } else {
-        // If leftBlock is not empty, assign it to rightBlock
-        rightBlock = block;
-
-        // Check if both leftBlock and rightBlock have the same name
-        if (leftBlock["name"] == rightBlock["name"]) {
-          // Remove anchors associated with the blocks
-          for (var anchor in anchors) {
-            if (anchor.name == leftBlock["anchor"] || anchor.name == rightBlock["anchor"]) {
-              arAnchorManager!.removeAnchor(anchor);
-            }
-          }
+        // Check if leftBlock is empty
+        if (leftBlock.isEmpty) {
+          leftBlock = block;
+          blocks.removeAt(existingBlockIndex);
         } else {
-          // If the names are not the same, prompt wrong answer
-          arSessionManager!.onError("Wrong Match");
+          // If leftBlock is not empty, assign it to rightBlock
+          rightBlock = block;
+
+          // Check if both leftBlock and rightBlock have the same name
+          if (leftBlock["name"] == rightBlock["name"]) {
+            // Remove anchors associated with the blocks
+            for (var anchor in anchors) {
+              if (anchor.name == leftBlock["anchor"] || anchor.name == rightBlock["anchor"]) {
+                arAnchorManager!.removeAnchor(anchor);
+              }
+            }
+          } else {
+            // If the names are not the same, prompt wrong answer
+            arSessionManager!.onError("Wrong Match");
+          }
         }
+      } else {
+        // If the block doesn't exist, prompt wrong answer
+        arSessionManager!.onError("");
       }
     } else {
-      // If the block doesn't exist, prompt wrong answer
-      arSessionManager!.onError("");
+      arSessionManager!.onError("Good job you ace it! Now you learned our topic properly!");
     }
-    }
+  }
 
   Future<void> onPlaneOrPointTapped(
       List<ARHitTestResult> hitTestResults) async {
