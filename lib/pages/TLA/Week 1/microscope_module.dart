@@ -194,7 +194,7 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
   Future<void> onNodeTapped(List<String> nodeNames) async {
     var foregroundNode =
     nodes.firstWhere((element) => element.name == nodeNames.first);
-    arSessionManager!.onError(foregroundNode.data!["onTapText"]);
+    arSessionManager!.onError(foregroundNode.data!["name"]);
   }
 
   Future<void> onPlaneOrPointTapped(List<ARHitTestResult> hitTestResults) async {
@@ -220,7 +220,7 @@ class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
           scale: sceneNode.scale,
           position: sceneNode.position,
           rotation: vector.Vector4(1.0, 0.0, 0.0, 0.0),
-          data: {"onTapText": "Ouch, that hurt!"});
+          data: {"name": sceneNode.name});
       bool? didAddNodeToAnchor =
       await arObjectManager!.addNode(newNode, planeAnchor: newAnchor);
       if (didAddNodeToAnchor!) {
