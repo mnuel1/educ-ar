@@ -24,18 +24,18 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => UpdateNotify("assets/lesson1&2/lesson1Subtitles/AT/subtitle.json"),
-      child: const MicroscopeModuleScreen(),
+      child: const ModuleScreen(),
     ),
   );
 }
 
-class MicroscopeModuleScreen extends StatefulWidget  {
-  const MicroscopeModuleScreen({super.key});
+class ModuleScreen extends StatefulWidget  {
+  const ModuleScreen({super.key});
 
-  _MicroscopeModulePage createState() => _MicroscopeModulePage();
+  _ModuleScreenPage createState() => _ModuleScreenPage();
 }
 
-class _MicroscopeModulePage extends State<MicroscopeModuleScreen> {
+class _ModuleScreenPage extends State<ModuleScreen> {
 
   ARSessionManager? arSessionManager;
   ARObjectManager? arObjectManager;

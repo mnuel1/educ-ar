@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+// import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,7 @@ import 'package:ar_flutter_plugin/datatypes/hittest_result_types.dart';
 import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:ar_flutter_plugin/models/ar_hittest_result.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
+// import 'dart:developer' as developer;
 
 import 'package:microscope_ar/components/choice_button.dart';
 import 'package:microscope_ar/classes/scenenode.dart';
@@ -24,7 +26,7 @@ import 'package:microscope_ar/classes/change_notifier.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => UpdateNotify("assets/lesson1&2/lesson2Subtitles/TLA/subtitle.json"),
+      create: (context) => UpdateNotify("assets/lesson6/lesson6Subitles/TLA/subtitle.json"),
       child: const ModuleScreen(),
     ),
   );
@@ -48,11 +50,13 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   var singleHit = null;
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
-    SceneNode(name:"bot", modelPath: "assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.4, 0.030), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"", modelPath:"assets/sim4x/microscope_x4.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(name:"", modelPath:"assets/sim8x/sim8x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(name:"", modelPath:"assets/sim40x/sim40x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
-    SceneNode(name:"", modelPath:"assets/sim100x/sim100x.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(1, 1, 1)),
+    SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
+    SceneNode(name:"cell", modelPath:"assets/lesson4/assets/cells.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.5, .5, .5)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/metabolism.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/reproduction.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/respiration.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/photo.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+
   ];
 
   late UpdateNotify updateNotify;
@@ -68,38 +72,51 @@ class _ModuleScreenPage extends State<ModuleScreen> {
       // print(objectBoardIndex);
       if (objectBoardIndex == 1) {
         addNodeToAnchor(sceneNodes[0]);
+      }
+      if (objectBoardIndex == 5) {
+        addNodeToAnchor(sceneNodes[1]);
+
+      }
+      if (objectBoardIndex == 28) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
         addNodeToAnchor(sceneNodes[2]);
       }
-
-      if (objectBoardIndex == 13) {
+      if (objectBoardIndex == 31) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
-        anchors = [];
-        addNodeToAnchor(sceneNodes[0]);
 
+        anchors = [];
         addNodeToAnchor(sceneNodes[3]);
       }
-      if (objectBoardIndex == 19) {
+      if (objectBoardIndex == 33) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
         anchors = [];
-        addNodeToAnchor(sceneNodes[0]);
+
         addNodeToAnchor(sceneNodes[4]);
       }
-      if (objectBoardIndex == 25) {
+      if (objectBoardIndex == 36) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
         anchors = [];
-        addNodeToAnchor(sceneNodes[0]);
+
         addNodeToAnchor(sceneNodes[5]);
       }
 
       objectBoardIndex++;
 
-
+      //  // Call addNodeToAnchor method whenever nextDescription is called
+      //       if (objectBoardIndex == 0 || objectBoardIndex == 1 || objectBoardIndex == 14) {
+      //         for (var anchor in anchors) {
+      //           arAnchorManager!.removeAnchor(anchor);
+      //         }
+      //         anchors = [];
     };
 
     return MaterialApp(
@@ -199,7 +216,7 @@ class _ModuleScreenPage extends State<ModuleScreen> {
           uri: sceneNode.modelPath,
           scale: sceneNode.scale,
           position: sceneNode.position,
-          rotation: vector.Vector4(1.0, 0.0, 0.0, 0.0));
+          rotation: vector.Vector4(1, 0, 0, 0.0));
       bool? didAddNodeToAnchor =
       await arObjectManager!.addNode(newNode, planeAnchor: newAnchor);
       if (didAddNodeToAnchor!) {
