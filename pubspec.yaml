@@ -104,6 +104,12 @@ flutter:
     - assets/lesson5/assets/blocks/
     - assets/lesson5/lesson5Subitles/AT/
     - assets/lesson5/lesson5Subitles/TLA/
+    - assets/lesson6/assets/
+    - assets/lesson6/lesson6Subitles/AT/
+    - assets/lesson6/lesson6Subitles/TLA/
+    - assets/lesson7/assets/
+    - assets/lesson7/lesson7Subitles/AT/
+    - assets/lesson7/lesson7Subitles/TLA/
 
 
 

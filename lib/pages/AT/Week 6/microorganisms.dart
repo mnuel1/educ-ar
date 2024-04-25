@@ -51,12 +51,10 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"cell", modelPath:"assets/lesson4/assets/cells.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.5, .5, .5)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/metabolism.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/reproduction.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/respiration.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/photo.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-
+    SceneNode(name:"", modelPath:"assets/lesson6/assets/bg.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.5, .5, .5)),
+    SceneNode(name:"", modelPath:"assets/lesson6/assets/bread.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson6/assets/yogurt.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson6/assets/viruses.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
   ];
 
   late UpdateNotify updateNotify;
@@ -73,40 +71,26 @@ class _ModuleScreenPage extends State<ModuleScreen> {
       if (objectBoardIndex == 1) {
         addNodeToAnchor(sceneNodes[0]);
       }
-      if (objectBoardIndex == 5) {
+      if (objectBoardIndex == 8) {
         addNodeToAnchor(sceneNodes[1]);
-
-      }
-      if (objectBoardIndex == 28) {
-        for (var anchor in anchors) {
-          arAnchorManager!.removeAnchor(anchor);
-        }
-        anchors = [];
         addNodeToAnchor(sceneNodes[2]);
       }
-      if (objectBoardIndex == 31) {
+      if (objectBoardIndex == 9) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
-
         anchors = [];
+        addNodeToAnchor(sceneNodes[1]);
         addNodeToAnchor(sceneNodes[3]);
       }
-      if (objectBoardIndex == 33) {
+      if (objectBoardIndex == 10) {
         for (var anchor in anchors) {
           arAnchorManager!.removeAnchor(anchor);
         }
-        anchors = [];
 
+        anchors = [];
+        addNodeToAnchor(sceneNodes[1]);
         addNodeToAnchor(sceneNodes[4]);
-      }
-      if (objectBoardIndex == 36) {
-        for (var anchor in anchors) {
-          arAnchorManager!.removeAnchor(anchor);
-        }
-        anchors = [];
-
-        addNodeToAnchor(sceneNodes[5]);
       }
 
       objectBoardIndex++;
