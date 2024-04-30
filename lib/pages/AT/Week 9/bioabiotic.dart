@@ -51,7 +51,7 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"", modelPath:"assets/lesson9/assets/tree.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.5, .5, .5)),
+    SceneNode(name:"", modelPath:"assets/lesson9/assets/tree.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
     SceneNode(name:"", modelPath:"assets/lesson9/assets/river.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
     SceneNode(name:"", modelPath:"assets/lesson9/assets/butterfly.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
     SceneNode(name:"", modelPath:"assets/lesson9/assets/tiger.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),

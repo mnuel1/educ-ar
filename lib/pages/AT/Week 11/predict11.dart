@@ -26,7 +26,7 @@ import 'package:microscope_ar/classes/change_notifier.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => UpdateNotify("assets/lesson6/lesson6Subitles/TLA/subtitle.json"),
+      create: (context) => UpdateNotify("assets/lesson11/lesson11Subtitles/AT/subtitle.json"),
       child: const ModuleScreen(),
     ),
   );
@@ -51,15 +51,9 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/bg.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/prio.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/decomposers.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/anti.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/yakult.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/bacteria.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/virus.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson6/assets/fungi.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/harsh.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/redfox.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/disease.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
   ];
 
   late UpdateNotify updateNotify;
@@ -75,30 +69,26 @@ class _ModuleScreenPage extends State<ModuleScreen> {
       // print(objectBoardIndex);
       if (objectBoardIndex == 1) {
         addNodeToAnchor(sceneNodes[0]);
-        addNodeToAnchor(sceneNodes[1]);
-      }
-      if (objectBoardIndex == 7) {
-        addNodeToAnchor(sceneNodes[2]);
-
       }
       if (objectBoardIndex == 10) {
-        addNodeToAnchor(sceneNodes[3]);
+        addNodeToAnchor(sceneNodes[1]);
       }
       if (objectBoardIndex == 12) {
-        addNodeToAnchor(sceneNodes[4]);
-      }
-      if (objectBoardIndex == 17) {
-        addNodeToAnchor(sceneNodes[5]);
-      }
-      if (objectBoardIndex == 20) {
-        addNodeToAnchor(sceneNodes[6]);
-      }
-      if (objectBoardIndex == 21) {
-        addNodeToAnchor(sceneNodes[7]);
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+
+        anchors = [];
+        addNodeToAnchor(sceneNodes[2]);
       }
 
-      if (objectBoardIndex == 22) {
-        addNodeToAnchor(sceneNodes[8]);
+      if (objectBoardIndex == 14) {
+        for (var anchor in anchors) {
+          arAnchorManager!.removeAnchor(anchor);
+        }
+        anchors = [];
+
+        addNodeToAnchor(sceneNodes[3]);
       }
       objectBoardIndex++;
 
