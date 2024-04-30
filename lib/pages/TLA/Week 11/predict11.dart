@@ -51,13 +51,13 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons1.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons2.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons3.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons4.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons5.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson11/assets/foodweb.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson11/assets/habitat.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons1.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons2.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons3.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/cons4.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/const5.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/foodweb.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson11/assets/habitat.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
 
   ];
 

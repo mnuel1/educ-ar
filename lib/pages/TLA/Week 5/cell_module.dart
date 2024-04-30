@@ -51,11 +51,11 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"cell", modelPath:"assets/lesson4/assets/cells.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/metabolism.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/reproduction.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/respiration.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson5/assets/photo.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"cell", modelPath:"assets/lesson4/assets/cells.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/metabolism.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/reproduction.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/respiration.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson5/assets/photo.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.25, .25, .25)),
 
   ];
 

@@ -51,11 +51,11 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"", modelPath:"assets/lesson8/assets/spermeggarrow.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson8/assets/start.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson8/assets/acro.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson8/assets/last.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson8/assets/extra.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson8/assets/spermeggarrow.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson8/assets/start.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.1, .1, .1)),
+    SceneNode(name:"", modelPath:"assets/lesson8/assets/acrosomal.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.1, .1, .1)),
+    SceneNode(name:"", modelPath:"assets/lesson8/assets/last.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.1, .1, .1)),
+    SceneNode(name:"", modelPath:"assets/lesson8/assets/extra.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.1, .1, .1)),
   ];
 
   late UpdateNotify updateNotify;

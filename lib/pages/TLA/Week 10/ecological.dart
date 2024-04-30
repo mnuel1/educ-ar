@@ -51,12 +51,12 @@ class _ModuleScreenPage extends State<ModuleScreen> {
   int objectBoardIndex = 1;
   List<SceneNode> sceneNodes = [
     SceneNode(name:"", modelPath:"assets/bot/scene.gltf", position: vector.Vector3(0.2, 0.5, 0.2), scale: vector.Vector3(0.3, 0.3, 0.3)),
-    SceneNode(name:"", modelPath:"assets/lesson10/assets/mutualism.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson10/assets/commensalism.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson10/assets/predation.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson10/assets/competition.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson10/assets/decomposition.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
-    SceneNode(name:"", modelPath:"assets/lesson10/assets/parasitism.gltf", position:vector.Vector3(0.015, -0.01, 0.048), scale:vector.Vector3(.25, .25, .25)),
+    SceneNode(name:"", modelPath:"assets/lesson10/assets/mutualism.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson10/assets/commensalism.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson10/assets/predation.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson10/assets/competition.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson10/assets/decomposition.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
+    SceneNode(name:"", modelPath:"assets/lesson10/assets/parasitism.gltf", position:vector.Vector3(0, 0, 0), scale:vector.Vector3(.15, .15, .15)),
 
   ];
 
